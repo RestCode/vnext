@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "Microsoft.AspNetCore.Http.Abstractions": "1.0.0",
+    "NETStandard.Library": "1.6.0",
+    "WebApiProxy.Core": "1.0.0-*"
+  },
+  "scripts": { "precompile": "..\\artifacts\\ttgen.exe create -s .\\JQuery.template -c JQueryGenerator -ns WebApiProxy.Generators.JQuery" },
+  "frameworks": {
+    "netstandard1.5": {
+      "imports": "dnxcore50"
+    }
+  }
+}
