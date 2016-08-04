@@ -28,7 +28,7 @@ namespace SampleApi
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddMvc();
+            services.AddWebApiProxy().AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,7 +37,7 @@ namespace SampleApi
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseJQueryClientProvider().UseMvc();
+            app.UseWebApiProxy().UseJQueryClientProvider().UseMvc();
         }
     }
 }

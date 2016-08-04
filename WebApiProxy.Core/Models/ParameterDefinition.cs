@@ -3,6 +3,7 @@ namespace WebApiProxy.Core.Models
 {
 	public class ParameterDefinition 
     {
+        public string Source { get; set; }
         public string Name { get; set; }
 
         public string Type { get; set; }
