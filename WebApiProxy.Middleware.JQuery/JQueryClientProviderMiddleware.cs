@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApiProxy.Core.Infrastructure;
 using WebApiProxy.Core.Models;
 using WebApiProxy.Generators.JQuery;
 
@@ -26,19 +27,29 @@ namespace WebApiProxy.Providers.JQuery
 
         public async Task Invoke(HttpContext httpContext)
         {
-            var generator = new JQueryGenerator();
-            generator.Metadata = new Core.Models.Metadata
+            var host = $"{httpContext.Request.Scheme}://{httpContext.Request.Host}";
+            var configuration = new ClientConfiguration
             {
-                Host = "http://foo.bar",
-                Definitions = new List<ControllerDefinition>(),
-                Models = new List<ModelDefinition>()
+
+                ProxyUrl = "http://foo.com",
+                
+                
+                
+            };
+            var meta = new Metadata()
+            {
+                Host = host
             };
 
-            var result = generator.TransformText();
+            var provider = new DefaultMetadataProvider(meta);
+            IGenerator generator = new JQueryGenerator(provider, configuration);
+
+
+            var result = await generator.Process();
 
             
             string apiVersion;
-            if (!requestingClient(httpContext.Request))
+            if (!requestingClient(httpContext.Request, configuration.Action))
             {
                 await _next(httpContext);
                 return;
@@ -47,9 +58,9 @@ namespace WebApiProxy.Providers.JQuery
             await httpContext.Response.WriteAsync(result);
 
         }
-        private bool requestingClient(HttpRequest request)
+        private bool requestingClient(HttpRequest request, string method = "GET")
         {
-            if (request.Method == "GET" && request.Path.Value == "/jquery")
+            if (request.Method == method && request.Path.Value == "/jquery")
             {
                 return true;
             }
