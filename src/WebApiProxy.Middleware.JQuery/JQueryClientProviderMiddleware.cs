@@ -4,8 +4,11 @@
     using System.Threading.Tasks;
     using Core.Infrastructure;
     using Generators.JQuery;
-    using Clients.Infrastructure;
     using Core.Models;
+    using Clients.Models;
+    using Microsoft.Extensions.Options;
+    using Middleware;
+    using System;
 
     //public class WebApiProxyProvider: IMetadataProvider
     //{
@@ -29,34 +32,34 @@
     //    }
     //}
 
-    public class JQueryClientProviderMiddleware
+    public class JQueryClientProviderMiddleware: IClientProvider
     {
         private readonly RequestDelegate _next;
         private readonly IMetadataProvider _metadataProvider;
-        //private readonly JsonSerializer _swaggerSerializer;
+        private readonly WebApiProxyOptions _options;
+
+       
+
         //private readonly Action<HttpRequest, SwaggerDocument> _documentFilter;
         //private readonly TemplateMatcher _requestMatcher;
 
         public JQueryClientProviderMiddleware(
             RequestDelegate next,
             IMetadataProvider metadataProvider,
-            string routeTemplate = "jquery.js")
+            IOptions<WebApiProxyOptions> options)
         {
             _next = next;
             _metadataProvider = metadataProvider;
+            _options = options.Value;
         }
 
         public async Task Invoke(HttpContext httpContext)
         {
-            var configuration = new ClientConfiguration
-            {
 
-                ProxyUrl = "http://foo.com",
+            
+            var configuration = new ClientConfiguration();
 
-                Action = "GET"
-
-            };
-            if (!requestingClient(httpContext.Request, configuration.Action))
+            if (!requestingClient(httpContext.Request))
             {
                 await _next(httpContext);
                 return;
@@ -67,8 +70,8 @@
             //});
             var host = $"{httpContext.Request.Scheme}://{httpContext.Request.Host}";
 
-            var metadata = _metadataProvider.GetMetadata();
-            IGenerator generator = new JQueryGenerator(metadata, configuration);
+            var metadata = _metadataProvider.GetMetadata(host);
+            IGenerator generator = new JQueryGenerator(metadata);
 
 
             var result = await generator.Process();
@@ -80,9 +83,12 @@
             await httpContext.Response.WriteAsync(result);
 
         }
-        private bool requestingClient(HttpRequest request, string method = "GET")
+        private bool requestingClient(HttpRequest request)
         {
-            if (request.Method == method && request.Path.Value == "/jquery.js")
+            var clientOptions = _options.ClientProviderOptions[typeof(JQueryClientProviderMiddleware)];
+
+
+            if (request.Method.Equals(clientOptions.HttpMethod, StringComparison.OrdinalIgnoreCase) && request.Path == clientOptions.Endpoint)
             {
                 return true;
             }

@@ -4,15 +4,15 @@
     using Models;
     public abstract class GeneratorBase : IGenerator
     {
-        protected readonly ClientConfiguration configuration;
+        //protected readonly ClientConfiguration configuration;
         public GeneratorBase()
         {
 
         }
-        public GeneratorBase(Metadata metadata, ClientConfiguration configuration)
+        public GeneratorBase(Metadata metadata)
         {
             this.Metadata = metadata;
-            this.configuration = configuration;
+            //this.configuration = configuration;
         }
 
         protected Metadata Metadata { get; private set; }

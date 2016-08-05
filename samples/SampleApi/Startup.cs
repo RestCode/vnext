@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using WebApiProxy.Middleware;
 
 namespace SampleApi
 {
@@ -28,7 +29,15 @@ namespace SampleApi
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddWebApiProxy().AddMvc();
+            services.AddWebApiProxy((opts) =>
+            {
+                opts.MetadataEndpoint = "/foo/bar";
+                opts.HttpMethod = "OPTIONS";
+
+                opts.AddJQueryClient();
+
+
+            }).AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

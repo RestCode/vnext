@@ -3,27 +3,29 @@
     using System.Collections.Generic;
     using System.Linq;
     using Microsoft.AspNetCore.Mvc.ApiExplorer;
-    using WebApiProxy.Core.Infrastructure;
+    using Core.Infrastructure;
     using Core.Models;
+    using Microsoft.Extensions.Options;
 
     public class DefaultMetadataProvider : IMetadataProvider
     {
         private readonly IApiDescriptionGroupCollectionProvider _apiDescriptionsProvider;
-        
+        //private readonly WebApiProxyOptions _options;
 
         public DefaultMetadataProvider(
             IApiDescriptionGroupCollectionProvider apiDescriptionsProvider)
         {
             _apiDescriptionsProvider = apiDescriptionsProvider;
+            //_options = options;
         }
 
-        public Metadata GetMetadata()
+        public Metadata GetMetadata(string baseUrl = "")
         {
             var paths = _apiDescriptionsProvider.ApiDescriptionGroups.Items;
 
             var metadata = new Metadata
             {
-                Host = "n/a",
+                Host = baseUrl,
 
                 Definitions =  paths.Select(_=> CreateControllerDefinition(_))
                 // Models = null

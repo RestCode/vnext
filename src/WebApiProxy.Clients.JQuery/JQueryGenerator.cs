@@ -6,6 +6,7 @@
     using Clients.Infrastructure;
     using Core.Infrastructure;
     using Core.Models;
+    using Clients.Models;
 
     public partial class JQueryGenerator: GeneratorBase
     {
@@ -14,7 +15,7 @@
 
         }
         
-        public JQueryGenerator(Metadata metadata, ClientConfiguration configuration): base(metadata, configuration)
+        public JQueryGenerator(Metadata metadata): base(metadata)
         {
 
         }
@@ -28,14 +29,7 @@
 
         }
 
-        public async Task<object> ProcessFromProxy(object input)
-        {
-            var configuration = ((ExpandoObject)input).Map<ClientConfiguration>();
-            var provider = new ExternalMetadataProvider(configuration);
-            var generator = (IGenerator)Activator.CreateInstance(Type.GetType(configuration.Generator), provider, configuration);
-
-            return await generator.Process();
-        }
+        
 
 
     }

@@ -3,6 +3,6 @@
     using Models;
     public interface IMetadataProvider
     {
-        Metadata GetMetadata();
+        Metadata GetMetadata(string baseUrl = "");
     }
 }

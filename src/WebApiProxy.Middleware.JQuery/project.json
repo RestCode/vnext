@@ -6,7 +6,8 @@
     "Microsoft.AspNetCore.Mvc.ApiExplorer": "1.0.0",
     "NETStandard.Library": "1.6.0",
     "WebApiProxy.Core": "1.0.0-*",
-    "WebApiProxy.Clients.JQuery": "1.0.0-*"
+    "WebApiProxy.Clients.JQuery": "1.0.0-*",
+    "WebApiProxy.Middleware": "1.0.0-*"
   },
   
   "frameworks": {

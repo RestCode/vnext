@@ -2,7 +2,7 @@
 {
     using AspNetCore.Mvc;
     using AspNetCore.Mvc.ApiExplorer;
-    using AspNetCore.Mvc.ApplicationModels;
+    using Options;
     using System;
     using WebApiProxy.Core.Infrastructure;
     using WebApiProxy.Middleware;
@@ -10,31 +10,33 @@
     public static class WebApiProxyServicesCollectionExtensions
     {
         public static IServiceCollection AddWebApiProxy(
-            this IServiceCollection services
-          //  Action<SwaggerGenOptions> setupAction = null
+            this IServiceCollection services,
+            Action<WebApiProxyOptions> setupAction = null
             )
         {
             services.Configure<MvcOptions>(c =>
                 c.Conventions.Add(new WebApiProxyConvention()));
 
-            //services.Configure(setupAction ?? (opts => { }));
+            services.Configure(setupAction ?? (opts => { }));
 
-            services.AddSingleton(CreateWebApiProxyProvider);
+            services.AddSingleton(createDefaultMetadataProvider);
+
+            
 
             return services;
         }
 
         public static void ConfigureWebApiProxy(
-            this IServiceCollection services
-           // Action<SwaggerGenOptions> setupAction
+            this IServiceCollection services,
+            Action<WebApiProxyOptions> setupAction
            )
         {
-          //  services.Configure(setupAction);
+            services.Configure(setupAction);
         }
 
-        private static IMetadataProvider CreateWebApiProxyProvider(IServiceProvider serviceProvider)
+        private static IMetadataProvider createDefaultMetadataProvider(IServiceProvider serviceProvider)
         {
-            //var swaggerGenOptions = serviceProvider.GetRequiredService<IOptions<SwaggerGenOptions>>().Value;
+            //var options = serviceProvider.GetRequiredService<IOptions<WebApiProxyOptions>>().Value;
             //var mvcJsonOptions = serviceProvider.GetRequiredService<IOptions<MvcJsonOptions>>().Value;
             var apiDescriptionsProvider = serviceProvider.GetRequiredService<IApiDescriptionGroupCollectionProvider>();
 
