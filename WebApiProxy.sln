@@ -3,22 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApiProxy.Core", "WebApiProxy.Core\WebApiProxy.Core.xproj", "{483C961A-6074-4622-8092-AF0ADF01A466}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApiProxy.Core", "src\WebApiProxy.Core\WebApiProxy.Core.xproj", "{483C961A-6074-4622-8092-AF0ADF01A466}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApiProxy.Middleware", "WebApiProxy.Middleware\WebApiProxy.Middleware.xproj", "{D4461E8F-19B6-414E-AE2B-0DD0FF432B78}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApiProxy.Middleware", "src\WebApiProxy.Middleware\WebApiProxy.Middleware.xproj", "{D4461E8F-19B6-414E-AE2B-0DD0FF432B78}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "artifacts", "artifacts", "{2BE59743-E8A2-4289-BAC0-32CEA15260B3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{2BE59743-E8A2-4289-BAC0-32CEA15260B3}"
 	ProjectSection(SolutionItems) = preProject
-		artifacts\ttgen.exe = artifacts\ttgen.exe
+		tools\ttgen.exe = tools\ttgen.exe
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApiProxy.Middleware.JQuery", "WebApiProxy.Middleware.JQuery\WebApiProxy.Middleware.JQuery.xproj", "{827E90F4-B274-4B34-9E2E-787C5A2A3D43}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApiProxy.Middleware.JQuery", "src\WebApiProxy.Middleware.JQuery\WebApiProxy.Middleware.JQuery.xproj", "{827E90F4-B274-4B34-9E2E-787C5A2A3D43}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{297882AD-2D5A-40E4-85A0-2798AAB7C702}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SampleApi", "SampleApi\SampleApi.xproj", "{70E4D8FB-A7D0-4E9D-8A3A-B50A838556CC}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SampleApi", "samples\SampleApi\SampleApi.xproj", "{70E4D8FB-A7D0-4E9D-8A3A-B50A838556CC}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApiProxy.Generators.JQuery", "WebApiProxy.Generators.JQuery\WebApiProxy.Generators.JQuery.xproj", "{F4B61F12-3773-472C-B2B7-5D7D45F81351}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApiProxy.Clients.JQuery", "src\WebApiProxy.Clients.JQuery\WebApiProxy.Clients.JQuery.xproj", "{F4B61F12-3773-472C-B2B7-5D7D45F81351}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApiProxy.Clients", "src\WebApiProxy.Clients\WebApiProxy.Clients.xproj", "{FDF547F3-82AC-452A-ABB5-BB728EEAE8A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{057DE0AD-F38B-4904-A3B3-D4210EED12F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,11 +50,20 @@ Global
 		{F4B61F12-3773-472C-B2B7-5D7D45F81351}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4B61F12-3773-472C-B2B7-5D7D45F81351}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4B61F12-3773-472C-B2B7-5D7D45F81351}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDF547F3-82AC-452A-ABB5-BB728EEAE8A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDF547F3-82AC-452A-ABB5-BB728EEAE8A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDF547F3-82AC-452A-ABB5-BB728EEAE8A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDF547F3-82AC-452A-ABB5-BB728EEAE8A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{483C961A-6074-4622-8092-AF0ADF01A466} = {057DE0AD-F38B-4904-A3B3-D4210EED12F7}
+		{D4461E8F-19B6-414E-AE2B-0DD0FF432B78} = {057DE0AD-F38B-4904-A3B3-D4210EED12F7}
+		{827E90F4-B274-4B34-9E2E-787C5A2A3D43} = {057DE0AD-F38B-4904-A3B3-D4210EED12F7}
 		{70E4D8FB-A7D0-4E9D-8A3A-B50A838556CC} = {297882AD-2D5A-40E4-85A0-2798AAB7C702}
+		{F4B61F12-3773-472C-B2B7-5D7D45F81351} = {057DE0AD-F38B-4904-A3B3-D4210EED12F7}
+		{FDF547F3-82AC-452A-ABB5-BB728EEAE8A6} = {057DE0AD-F38B-4904-A3B3-D4210EED12F7}
 	EndGlobalSection
 EndGlobal

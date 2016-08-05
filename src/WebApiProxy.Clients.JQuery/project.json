@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "WebApiProxy.Clients": "1.0.0-*",
+    "WebApiProxy.Core": "1.0.0-*"
+  },
+  "scripts": { "precompile": "..\\..\\tools\\ttgen.exe create -s .\\JQuery.template -c JQueryGenerator -ns WebApiProxy.Generators.JQuery" },
+  "frameworks": {
+    "netstandard1.3": {
+      "imports": "dnx50"
+    }
+  }, 
+  "runtimes": {
+    "win": {}
+  }
+}
