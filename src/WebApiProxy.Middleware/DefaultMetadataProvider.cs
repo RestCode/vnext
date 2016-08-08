@@ -5,18 +5,14 @@
     using Microsoft.AspNetCore.Mvc.ApiExplorer;
     using Core.Infrastructure;
     using Core.Models;
-    using Microsoft.Extensions.Options;
 
     public class DefaultMetadataProvider : IMetadataProvider
     {
         private readonly IApiDescriptionGroupCollectionProvider _apiDescriptionsProvider;
-        //private readonly WebApiProxyOptions _options;
-
         public DefaultMetadataProvider(
             IApiDescriptionGroupCollectionProvider apiDescriptionsProvider)
         {
             _apiDescriptionsProvider = apiDescriptionsProvider;
-            //_options = options;
         }
 
         public Metadata GetMetadata(string baseUrl = "")
@@ -26,28 +22,11 @@
             var metadata = new Metadata
             {
                 Host = baseUrl,
-
                 Definitions =  paths.Select(_=> CreateControllerDefinition(_))
-                // Models = null
             };
-
-            //var filterContext = new DocumentFilterContext(
-            //    _apiDescriptionsProvider.ApiDescriptionGroups,
-            //    schemaRegistry);
-
-            //foreach (var filter in _options.DocumentFilters)
-            //{
-            //    filter.Apply(swaggerDoc, filterContext);
-            //}
-
             return metadata;
         }
-
-       
-
-        private ControllerDefinition CreateControllerDefinition(ApiDescriptionGroup apiDescriptions
-            //, ISchemaRegistry schemaRegistry
-            )
+        private ControllerDefinition CreateControllerDefinition(ApiDescriptionGroup apiDescriptions)
         {
             var controllerDefinition = new ControllerDefinition();
 
