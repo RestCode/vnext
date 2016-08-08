@@ -1,6 +1,6 @@
 ﻿namespace Microsoft.AspNetCore.Builder
 {
-    using WebApiProxy.Providers.JQuery;
+    using WebApiProxy.Middleware.JQuery;
 
     public static class JQueryProviderBuilderExtensions
     {

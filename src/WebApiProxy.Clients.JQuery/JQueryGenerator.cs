@@ -1,12 +1,8 @@
-﻿namespace WebApiProxy.Generators.JQuery
+﻿namespace WebApiProxy.Clients.JQuery
 {
-    using System;
-    using System.Dynamic;
     using System.Threading.Tasks;
-    using Clients.Infrastructure;
     using Core.Infrastructure;
     using Core.Models;
-    using Clients.Models;
 
     public partial class JQueryGenerator: GeneratorBase
     {

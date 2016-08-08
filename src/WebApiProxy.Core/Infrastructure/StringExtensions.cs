@@ -1,8 +1,6 @@
 ﻿namespace WebApiProxy.Core.Infrastructure
 {
     using System;
-    using System.Collections.Generic;
-    using System.Reflection;
     using System.Text.RegularExpressions;
     public static class StringExtensions
     {

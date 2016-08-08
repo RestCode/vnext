@@ -1,9 +1,9 @@
-﻿namespace WebApiProxy.Providers.JQuery
+﻿namespace WebApiProxy.Middleware.JQuery
 {
     using Microsoft.AspNetCore.Http;
     using System.Threading.Tasks;
     using Core.Infrastructure;
-    using Generators.JQuery;
+    using Clients.JQuery;
     using Microsoft.Extensions.Options;
     using Middleware;
 

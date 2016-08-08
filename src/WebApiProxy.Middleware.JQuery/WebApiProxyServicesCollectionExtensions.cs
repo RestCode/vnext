@@ -2,7 +2,7 @@
 {
     using System;
     using WebApiProxy.Middleware;
-    using WebApiProxy.Providers.JQuery;
+    using WebApiProxy.Middleware.JQuery;
     
     public static class WebApiProxyServicesCollectionExtensions
     {

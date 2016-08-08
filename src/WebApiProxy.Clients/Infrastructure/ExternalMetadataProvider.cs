@@ -1,10 +1,11 @@
 ﻿namespace WebApiProxy.Clients.Infrastructure
 {
-    using System.Net.Http;
     using Newtonsoft.Json;
     using Core.Infrastructure;
     using Core.Models;
     using Models;
+    using System.Net;
+    using System.IO;
 
     public class ExternalMetadataProvider : IMetadataProvider
     {
@@ -14,15 +15,25 @@
         {
             this.configuration = configuration;
         }
+
+        
+
         public Metadata GetMetadata(string baseUrl = "")
         {
-            using (var client = new HttpClient())
+            var c = WebRequest.CreateHttp(configuration.MetadataEndpoint);
+            c.Method = configuration.Method;
+            var response = c.GetResponseAsync().Result;
+           // var result = response.
+          //  using (var client = new HttpClient())
             {
-                var response = client.SendAsync(new HttpRequestMessage(configuration.Method, configuration.MetadataEndpoint));
-                var result = response.Result.Content.ReadAsStringAsync().Result;
-                var metadata = JsonConvert.DeserializeObject<Metadata>(result);
-
-                return metadata;
+            //    var response = client.SendAsync(new HttpRequestMessage(new HttpMethod(configuration.Method), configuration.MetadataEndpoint));
+                var result = response.GetResponseStream();
+                using (StreamReader reader = new StreamReader(result))
+                using (JsonTextReader jsonReader = new JsonTextReader(reader))
+                {
+                    JsonSerializer ser = new JsonSerializer();
+                    return ser.Deserialize<Metadata>(jsonReader);
+                }
             }
 
         }

@@ -1,4 +1,4 @@
-﻿namespace WebApiProxy.Providers.JQuery
+﻿namespace WebApiProxy.Middleware.JQuery
 {
     using Middleware;
     public class JQueryClientProviderOptions : WebApiProxyOptions
