@@ -7,7 +7,8 @@
         public string Name { get; set; }
         public string Namespace { get; set; }
         public string Suffix { get; set; }
-        public string Generator { get; set; }
+        public string GeneratorType { get; set; }
+        public string GeneratorAssembly { get; set; }
     }
     
 }

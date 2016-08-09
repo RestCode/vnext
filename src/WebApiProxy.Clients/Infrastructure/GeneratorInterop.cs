@@ -7,28 +7,19 @@
     using System.Dynamic;
     using System.Threading.Tasks;
     using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.Reflection;
 
     public class GeneratorInterop
     {
-        public async Task<object> Invoke(object input)
+        public async Task<object> Invoke(ExpandoObject input)
         {
-            IDictionary<string, object> parameters = (ExpandoObject)input;
-            var configuration = ((ExpandoObject)input).Map<ClientConfiguration>();
+            var configuration = input.Map<ClientConfiguration>();
 
-            //var configuration = new ClientConfiguration
-            //{
-            //    Generator = parameters["generator"]?.ToString(),
-            //    MetadataEndpoint = parameters["metadataEndpoint"]?.ToString(),
-            //    Method = parameters["method"]?.ToString(),
-            //    Name = parameters["name"]?.ToString(),
-            //    Namespace = parameters["namespace"]?.ToString(),
-            //    Suffix = parameters["suffix"]?.ToString(),
-            //};
-
-
+            var assembly = Assembly.Load(new AssemblyName(configuration.GeneratorAssembly));
             var provider = new ExternalMetadataProvider(configuration);
             var metadata = provider.GetMetadata();
-            var generator = (IGenerator)Activator.CreateInstance(Type.GetType(configuration.Generator), metadata);
+            var generator = (IGenerator)Activator.CreateInstance(assembly.GetType(configuration.GeneratorType), metadata);
 
             return await generator.Process();
         }

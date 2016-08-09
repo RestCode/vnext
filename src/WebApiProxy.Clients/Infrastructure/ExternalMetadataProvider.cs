@@ -15,27 +15,20 @@
         {
             this.configuration = configuration;
         }
-
         
-
         public Metadata GetMetadata(string baseUrl = "")
         {
-            var c = WebRequest.CreateHttp(configuration.MetadataEndpoint);
-            c.Method = configuration.Method;
-            var response = c.GetResponseAsync().Result;
-           // var result = response.
-          //  using (var client = new HttpClient())
-            {
-            //    var response = client.SendAsync(new HttpRequestMessage(new HttpMethod(configuration.Method), configuration.MetadataEndpoint));
-                var result = response.GetResponseStream();
-                using (StreamReader reader = new StreamReader(result))
-                using (JsonTextReader jsonReader = new JsonTextReader(reader))
-                {
-                    JsonSerializer ser = new JsonSerializer();
-                    return ser.Deserialize<Metadata>(jsonReader);
-                }
-            }
+            var client = WebRequest.CreateHttp(configuration.MetadataEndpoint);
+            client.Method = configuration.Method;
+            var response = client.GetResponseAsync().Result;
 
+            var result = response.GetResponseStream();
+            using (var reader = new StreamReader(result))
+            using (var jsonReader = new JsonTextReader(reader))
+            {
+                var ser = new JsonSerializer();
+                return ser.Deserialize<Metadata>(jsonReader);
+            }
         }
     }
 }
