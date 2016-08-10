@@ -24,6 +24,8 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApiProxy.Clients", "src\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{057DE0AD-F38B-4904-A3B3-D4210EED12F7}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApiproxy.Clients.CSharp", "src\WebApiproxy.Clients.CSharp\WebApiproxy.Clients.CSharp.xproj", "{95A3C87C-AF7B-4B2B-B82F-B1682C29C693}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +56,10 @@ Global
 		{FDF547F3-82AC-452A-ABB5-BB728EEAE8A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDF547F3-82AC-452A-ABB5-BB728EEAE8A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDF547F3-82AC-452A-ABB5-BB728EEAE8A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95A3C87C-AF7B-4B2B-B82F-B1682C29C693}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95A3C87C-AF7B-4B2B-B82F-B1682C29C693}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95A3C87C-AF7B-4B2B-B82F-B1682C29C693}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95A3C87C-AF7B-4B2B-B82F-B1682C29C693}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,5 +71,6 @@ Global
 		{70E4D8FB-A7D0-4E9D-8A3A-B50A838556CC} = {297882AD-2D5A-40E4-85A0-2798AAB7C702}
 		{F4B61F12-3773-472C-B2B7-5D7D45F81351} = {057DE0AD-F38B-4904-A3B3-D4210EED12F7}
 		{FDF547F3-82AC-452A-ABB5-BB728EEAE8A6} = {057DE0AD-F38B-4904-A3B3-D4210EED12F7}
+		{95A3C87C-AF7B-4B2B-B82F-B1682C29C693} = {057DE0AD-F38B-4904-A3B3-D4210EED12F7}
 	EndGlobalSection
 EndGlobal
