@@ -1,4 +1,4 @@
-﻿namespace WebApiProxy.Clients.Infrastructure
+﻿namespace WebApiProxy.Generators.Infrastructure
 {
     using System;
     using System.Dynamic;

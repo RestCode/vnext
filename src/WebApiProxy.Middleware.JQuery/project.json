@@ -1,13 +1,13 @@
 {
-  "version": "1.0.0-*",
+  "version": "0.0.1-*",
 
   "dependencies": {
     "Microsoft.AspNetCore.Http.Abstractions": "1.0.0",
     "Microsoft.AspNetCore.Mvc.ApiExplorer": "1.0.0",
     "NETStandard.Library": "1.6.0",
-    "WebApiProxy.Core": "1.0.0-*",
-    "WebApiProxy.Clients.JQuery": "1.0.0-*",
-    "WebApiProxy.Middleware": "1.0.0-*"
+    "WebApiProxy.Core": "0.0.1-*",
+    "WebApiProxy.Generators.JQuery": "0.0.1-*",
+    "WebApiProxy.Middleware": "0.0.1-*"
   },
   
   "frameworks": {

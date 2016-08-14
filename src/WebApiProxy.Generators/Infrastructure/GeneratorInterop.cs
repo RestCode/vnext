@@ -1,14 +1,12 @@
-﻿namespace WebApiProxy.Clients
+﻿namespace WebApiProxy.Generators
 {
     using Infrastructure;
-    using Clients.Models;
     using Core.Infrastructure;
     using System;
     using System.Dynamic;
     using System.Threading.Tasks;
-    using System.Collections.Generic;
-    using System.Diagnostics;
     using System.Reflection;
+    using Models;
 
     public class GeneratorInterop
     {

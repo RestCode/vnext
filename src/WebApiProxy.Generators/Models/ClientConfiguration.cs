@@ -1,4 +1,4 @@
-﻿namespace WebApiProxy.Clients.Models
+﻿namespace WebApiProxy.Generators.Models
 {
     public class ClientConfiguration
     {
