@@ -2,7 +2,7 @@
   "version": "1.0.0-*",
 
   "dependencies": {
-    "WebApiProxy.Clients": "1.0.0-*",
+    "WebApiProxy.Clients": "0.0.1-*",
     "WebApiProxy.Core": "1.0.0-*"
   },
   "scripts": { "precompile": "..\\..\\tools\\ttgen.exe create -s .\\JQuery.template -c JQueryGenerator -ns WebApiProxy.Clients.JQuery" },

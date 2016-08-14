@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0-*",
+  "version": "0.0.1-alpha-*",
 
   "dependencies": {
     "Newtonsoft.Json": "9.0.1",

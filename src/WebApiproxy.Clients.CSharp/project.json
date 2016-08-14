@@ -1,17 +1,28 @@
 ﻿{
-  "version": "1.0.0-*",
-
+  "version": "0.0.1-*",
+  "buildOptions": {
+   
+  },
   "dependencies": {
-    "WebApiProxy.Clients": "1.0.0-*",
+    "WebApiProxy.Clients": "0.0.1-*",
     "WebApiProxy.Core": "1.0.0-*"
   },
-  "scripts": { "precompile": "..\\..\\tools\\ttgen.exe create -s .\\CSharp.template -c CSharpGenerator -ns WebApiProxy.Clients.CSharp" },
+  "tools": {
+    "WebApiProxy.Tools.TTGenerator": "0.0.1-alpha-26"
+  },
+  "scripts": {
+    "precompile": "dotnet ttgen create -s .\\CSharp.template -c CSharpGenerator -ns WebApiProxy.Clients.CSharp"
+
+  },
   "frameworks": {
     "netstandard1.3": {
       "imports": "dnx50"
     }
   },
   "runtimes": {
-    "win10-x64": {}
+    "win10-x64": {},
+    "win81-x64": {},
+    "win8-x64": {},
+    "win7-x64": {}
   }
 }
