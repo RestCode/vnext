@@ -6,10 +6,10 @@
     "WebApiProxy.Core": "0.0.1-*"
   },
   "tools": {
-    "WebApiProxy.Tools.TTGenerator": "0.0.1-alpha-26"
+    "WebApiProxy.Tools.TTGenerator": "0.0.1-alpha-28"
   },
   "scripts": {
-    "precompile": "dotnet ttgen create -s .\\JQuery.template -c JQueryGenerator -ns WebApiProxy.Generators.JQuery"
+    "precompile": "dotnet ttgen create -c JQueryGenerator -ns WebApiProxy.Generators.JQuery"
 
   },
   "frameworks": {
