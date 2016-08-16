@@ -3,12 +3,12 @@
 
   "dependencies": {
     "WebApiProxy.Clients": "1.0.0-*",
-    "WebApiProxy.Core": "1.0.0-*"
+    "WebApiProxy.Core": "1.0.0-*",
+    "Microsoft.NETCore.App": "1.0.0"
   },
   "scripts": { "precompile": "..\\..\\tools\\ttgen.exe create -s .\\CSharp.template -c CSharpGenerator -ns WebApiProxy.Clients.CSharp" },
   "frameworks": {
-    "netstandard1.3": {
-      "imports": "dnx50"
+    "netcoreapp1.0": {
     }
   },
   "runtimes": {

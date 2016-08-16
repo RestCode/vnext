@@ -18,11 +18,14 @@
 
         public async override Task Invoke(HttpContext httpContext)
         {
-            await base.ProcessRequest(httpContext);
+            if (await base.ProcessRequest(httpContext))
+            {
+                IGenerator generator = new JQueryGenerator(metadata);
+                var result = await generator.Process();
+                await httpContext.Response.WriteAsync(result);
+            }
 
-            IGenerator generator = new JQueryGenerator(metadata);
-            var result = await generator.Process();
-            await httpContext.Response.WriteAsync(result);
+            
 
         }
         

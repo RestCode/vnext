@@ -30,6 +30,10 @@
         /// <returns>The xml documentation format.</returns>
         public static string ToSummary(this string description)
         {
+            if (String.IsNullOrEmpty(description))
+            {
+                return "";
+            }
             return Regex.Replace(description, "\n\\s*", "\n\t\t/// ");
         }
 

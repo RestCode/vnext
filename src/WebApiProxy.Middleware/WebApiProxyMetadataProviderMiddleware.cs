@@ -16,17 +16,20 @@
         public async override Task Invoke(HttpContext httpContext)
         {
 
-            await base.ProcessRequest(httpContext);
-            
-            var response = httpContext.Response;
-            response.StatusCode = 200;
-            response.ContentType = "application/json";
-            using (var writer = new StreamWriter(response.Body))
+            if (await base.ProcessRequest(httpContext))
             {
-                var output = JsonConvert.SerializeObject(metadata);
+                var response = httpContext.Response;
+                response.StatusCode = 200;
+                response.ContentType = "application/json";
+                using (var writer = new StreamWriter(response.Body))
+                {
+                    var output = JsonConvert.SerializeObject(metadata);
 
-                writer.Write(output);
+                    writer.Write(output);
+                }
             }
+            
+            
         }
     }
 }

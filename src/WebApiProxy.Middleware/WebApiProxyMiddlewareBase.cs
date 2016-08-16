@@ -24,17 +24,19 @@
         }
         public abstract Task Invoke(HttpContext httpContext);
 
-        protected virtual async Task ProcessRequest(HttpContext httpContext)
+        protected virtual async Task<bool> ProcessRequest(HttpContext httpContext)
         {
             if (!ValidateRequest(httpContext.Request))
             {
                 await next(httpContext);
-                return;
+                return false;
             }
 
             var host = $"{httpContext.Request.Scheme}://{httpContext.Request.Host}";
 
             metadata = metadataProvider.GetMetadata(host);
+
+            return true;
         }
 
         protected virtual bool ValidateRequest(HttpRequest request)
