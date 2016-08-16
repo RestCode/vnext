@@ -1,4 +1,4 @@
-﻿namespace WebApiProxy.Clients.JQuery
+﻿namespace WebApiProxy.Generators.JQuery
 {
     using System.Threading.Tasks;
     using Core.Infrastructure;

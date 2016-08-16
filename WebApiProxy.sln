@@ -7,28 +7,25 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApiProxy.Core", "src\Web
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApiProxy.Middleware", "src\WebApiProxy.Middleware\WebApiProxy.Middleware.xproj", "{D4461E8F-19B6-414E-AE2B-0DD0FF432B78}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{2BE59743-E8A2-4289-BAC0-32CEA15260B3}"
-	ProjectSection(SolutionItems) = preProject
-		tools\ttgen.exe = tools\ttgen.exe
-	EndProjectSection
-EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApiProxy.Middleware.JQuery", "src\WebApiProxy.Middleware.JQuery\WebApiProxy.Middleware.JQuery.xproj", "{827E90F4-B274-4B34-9E2E-787C5A2A3D43}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{297882AD-2D5A-40E4-85A0-2798AAB7C702}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SampleApi", "samples\SampleApi\SampleApi.xproj", "{70E4D8FB-A7D0-4E9D-8A3A-B50A838556CC}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApiProxy.Clients.JQuery", "src\WebApiProxy.Clients.JQuery\WebApiProxy.Clients.JQuery.xproj", "{F4B61F12-3773-472C-B2B7-5D7D45F81351}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApiProxy.Generators.JQuery", "src\WebApiProxy.Generators.JQuery\WebApiProxy.Generators.JQuery.xproj", "{F4B61F12-3773-472C-B2B7-5D7D45F81351}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApiProxy.Clients", "src\WebApiProxy.Clients\WebApiProxy.Clients.xproj", "{FDF547F3-82AC-452A-ABB5-BB728EEAE8A6}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApiProxy.Generators", "src\WebApiProxy.Generators\WebApiProxy.Generators.xproj", "{FDF547F3-82AC-452A-ABB5-BB728EEAE8A6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{057DE0AD-F38B-4904-A3B3-D4210EED12F7}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApiproxy.Clients.CSharp", "src\WebApiproxy.Clients.CSharp\WebApiproxy.Clients.CSharp.xproj", "{95A3C87C-AF7B-4B2B-B82F-B1682C29C693}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApiproxy.Generators.CSharp", "src\WebApiProxy.Generators.CSharp\WebApiproxy.Generators.CSharp.xproj", "{95A3C87C-AF7B-4B2B-B82F-B1682C29C693}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{090E95EC-2BE1-4BA5-952C-D8F628B5AC78}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApiProxy.Core.Test", "test\WebApiProxy.Core.Test\WebApiProxy.Core.Test.xproj", "{72E2AFE2-7DC6-42C4-98F2-37DBF62A2D19}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{829AA71E-7B30-47F0-AE9C-FE483A68A8DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,4 +1,4 @@
-﻿namespace WebApiProxy.Clients.Infrastructure
+﻿namespace WebApiProxy.Generators.Infrastructure
 {
     using Newtonsoft.Json;
     using Core.Infrastructure;

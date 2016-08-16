@@ -6,8 +6,8 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>f4b61f12-3773-472c-b2b7-5d7d45f81351</ProjectGuid>
-    <RootNamespace>WebApiProxy.Clients.JQuery</RootNamespace>
+    <ProjectGuid>fdf547f3-82ac-452a-abb5-bb728eeae8a6</ProjectGuid>
+    <RootNamespace>WebApiProxy.Generators</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>
     <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>

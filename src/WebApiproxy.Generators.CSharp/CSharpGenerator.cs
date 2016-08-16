@@ -1,4 +1,4 @@
-﻿namespace WebApiProxy.Clients.CSharp
+﻿namespace WebApiProxy.Generators.CSharp
 {
     using System.Threading.Tasks;
     using Core.Infrastructure;

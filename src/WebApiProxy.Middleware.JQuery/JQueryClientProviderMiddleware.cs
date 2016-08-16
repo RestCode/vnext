@@ -3,9 +3,9 @@
     using Microsoft.AspNetCore.Http;
     using System.Threading.Tasks;
     using Core.Infrastructure;
-    using Clients.JQuery;
     using Microsoft.Extensions.Options;
     using Middleware;
+    using Generators.JQuery;
 
     public class JQueryClientProviderMiddleware: WebApiProxyMiddlewareBase
     {
